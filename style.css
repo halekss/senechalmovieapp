@@ -1,0 +1,185 @@
+/* style.css - Version Corrigée pour Placeholder */
+
+/* 1. Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap');
+
+/* 2. Forcer le fond sombre (sécurité) */
+.stApp {
+    background-color: #0E1117;
+}
+
+/* 3. Textes Généraux (Blanc cassé) */
+html, body, [class*="css"], .stMarkdown, p, label {
+    font-family: 'Roboto', sans-serif;
+    color: #E0E0E0 !important;
+    font-size: 25px !important;
+}
+
+/* 4. TITRES (Rouge Cinéma & Police Affiche) */
+h1, h2, h3 {
+    font-family: 'Bebas Neue', sans-serif !important;
+    color: #c79712 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+h1 { font-size: 3rem !important; text-shadow: 2px 2px 0px #000; } /* Le Titre Principal */
+h2 { font-size: 2.5rem !important; } /* Les Sous-titres */
+h3 { font-size: 2.0rem !important; } /* Les titres de catégories (ex: Actuellement à l'affiche) */
+
+
+/* 5. BOUTONS (Contour Doré) */
+div.stButton > button {
+    background-color: transparent !important;
+    color: #D4AF37 !important;
+    border: 2px solid #D4AF37 !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease;
+}
+div.stButton > button:hover {
+    background-color: #D4AF37 !important;
+    color: black !important;
+    transform: scale(1.05);
+}
+
+/* 6. BARRES DE RECHERCHE (Fond Noir) */
+.stTextInput input, .stSelectbox div[data-baseweb="select"] > div {
+    background-color: #111 !important;
+    color: white !important;
+    border: 1px solid #444 !important;
+}
+
+/* 6b. CORRECTION DU PLACEHOLDER (Le fameux "Tapez un titre...") */
+/* Cible le texte à l'intérieur du selectbox quand rien n'est sélectionné */
+.stSelectbox div[data-baseweb="select"] span {
+    color: #f3f2f2 !important; /* Gris très clair pour le placeholder */
+}
+
+/* 6c. Placeholder pour les champs texte classiques (au cas où) */
+::placeholder {
+    color: #CCCCCC !important;
+    opacity: 1; /* Force l'opacité au maximum */
+}
+
+/* 7. MASQUER LES ÉLÉMENTS INUTILES */
+header {visibility: hidden;}
+.block-container { padding-top: 2rem; }
+hr { border-color: #c79712; }
+
+/* 8. COMPOSANTS PERSONNALISÉS */
+
+/* Carte titre de film (Cadre Doré) */
+/* 8. COMPOSANTS PERSONNALISÉS */
+
+/* Conteneur de la carte (Image + Titre) */
+.movie-card {
+    position: relative; /* Indispensable pour positionner le titre par dessus */
+    width: 100%;
+    overflow: hidden; /* Pour que l'image ne dépasse pas quand elle zoome */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    cursor: default;
+    border: 2px solid transparent; /* Bordure invisible par défaut */
+    transition: all 0.3s ease;
+}
+
+/* L'image du film */
+.movie-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease; /* Zoom fluide */
+}
+
+/* Le titre superposé (Overlay) */
+.movie-card-title {
+    position: absolute; /* Se place par dessus l'image */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(7, 7, 7); /* Fond noir semi-transparent pour lire le texte */
+    color: #ffffff; /* Texte Doré */
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    transform: translateY(0); /* Position normale */
+    transition: background 0.3s ease;
+}
+
+/* --- EFFETS AU SURVOL (HOVER) --- */
+.movie-card:hover {
+    border: 2px solid rgba(212, 175, 55, 0.9); /* Bordure blanche au survol */
+    transform: translateY(-5px); /* La carte remonte un petit peu */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.movie-card:hover img {
+    transform: scale(1.1); /* Zoom de l'image */
+}
+
+.movie-card:hover .movie-card-title {
+    background: rgba(212, 175, 55, 0.9); /* Le fond du titre devient Doré */
+    color: rgb(255, 255, 255); /* Le texte devient noir */
+}
+
+/* 9. SLIDERS (Slicers) EN OR */
+
+/* La barre de progression (partie remplie) */
+div[data-baseweb="slider"] > div > div > div > div {
+    background-color: #D4AF37 !important;
+}
+
+/* La petite boule (le curseur) */
+div[data-baseweb="slider"] div[role="slider"] {
+    background-color: #D4AF37 !important;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Petite lueur dorée sympa */
+}
+
+/* Le texte de la valeur au-dessus du curseur (quand on glisse) */
+div[data-baseweb="slider"] div[role="slider"] div {
+    color: rgb(255, 255, 255) !important; /* Texte noir pour être lisible sur le fond or */
+    font-weight: bold;
+}
+
+/* 10. UNIFORMISATION SELECTBOX & MULTISELECT */
+
+/* 1. La boîte principale (Le contenant) */
+.stSelectbox div[data-baseweb="select"] > div,
+.stMultiSelect div[data-baseweb="select"] > div {
+    background-color: #0E1117 !important; /* Fond Noir */
+    border: 1px solid #D4AF37 !important; /* Bordure Dorée */
+    color: white !important; /* Texte blanc */
+}
+
+/* 2. Le texte à l'intérieur de la boîte */
+.stSelectbox div[data-baseweb="select"] span,
+.stMultiSelect div[data-baseweb="select"] span {
+    color: #E0E0E0 !important; /* Blanc cassé pour la lisibilité */
+}
+
+/* 3. La liste déroulante (Le menu qui s'ouvre) */
+div[data-baseweb="popover"], div[data-baseweb="menu"] {
+    background-color: #1E1E1E !important; /* Fond gris foncé pour le menu */
+    border: 1px solid #D4AF37 !important; /* Bordure dorée du menu */
+}
+
+/* 4. Les options dans le menu (au survol) */
+li[role="option"]:hover, li[role="option"][aria-selected="true"] {
+    background-color: #D4AF37 !important; /* Fond doré quand on passe la souris */
+    color: black !important; /* Texte noir */
+}
+
+/* 5. Spécifique MultiSelect : Les "Tags" (éléments choisis) */
+.stMultiSelect div[data-baseweb="tag"] {
+    background-color: #D4AF37 !important; /* Fond étiquette or */
+}
+.stMultiSelect div[data-baseweb="tag"] span {
+    color: black !important; /* Texte étiquette noir */
+}
+
+/* 6. La petite flèche à droite */
+div[data-baseweb="select"] svg {
+    fill: #D4AF37 !important;
+}
