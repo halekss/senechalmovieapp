@@ -7,11 +7,4 @@ Suite à une étude de marché du département et de ses habitants en termes de 
 
 Le code a été implémenté sur une application Streamlit fonctionnelle, et fait l'objet de ce dépôt Github.
 
-## 🚀 Installation
-1. Cloner le repo :
-   ```bash
-   git clone https://github.com/halekss/senechalmovieapp.git
-
-2. Installer les dépendances:
-   ```bash
-   pip install -r requirements.txt
+[Bonne exploration !](https://senechalmovieapp-cvl6oryohmkmr7rzmgngg9.streamlit.app/)
